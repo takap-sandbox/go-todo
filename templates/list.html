@@ -1,0 +1,22 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <form action="/create" method="POST">
+      <div clas="lead">
+        Todos作成
+      </div>
+      <br class="form-group">
+        <textarea class="form-control" name="content" id="content" placeholder="TODO追加" rows="4"></textarea>
+        </br>
+        <button class="btn btn-lg btn-primary pull-right" type="submit">作成</button>
+      </div>
+    </form>
+    <hr />
+    {{ range .todos }}
+    <p><a href="/edit?id={{.ID}}">{{ .ID }}:{{ .Content }}</a>
+    </p>
+    <a href="/destroy?id={{ .ID }}">[削除]</a>
+    {{ end }}
+  </body>
+</html>
